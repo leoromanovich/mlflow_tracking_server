@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+
+mlflow_server/data/
+mlflow_server/mlruns/

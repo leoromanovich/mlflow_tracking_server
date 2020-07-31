@@ -1,0 +1,32 @@
+version: '3'
+services:
+  mlfs_proj:
+    build:
+      context: mlflow_server/
+      dockerfile: Dockerfile
+    volumes:
+      - "./mlruns:/mlruns"
+    ports:
+      - 5555:5000
+    environment:
+      # minio server IP and port
+      - "MLFLOW_S3_ENDPOINT_URL=http://0.0.0.0:9001"
+      - "AWS_ACCESS_KEY_ID=minio"
+      - "AWS_SECRET_ACCESS_KEY=minio123"
+      - "ARTIFACT_ROOT=s3://mlflow-artifacts/"
+    user: root
+    depends_on:
+      - minio_proj
+    container_name: mlfs_proj
+  minio_proj:
+    image: minio/minio:latest
+    volumes:
+      - "./data:/data"
+    ports:
+      - "9001:9000"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    entrypoint: sh
+    command: -c 'mkdir -p /data/mlflow-artifacts && /usr/bin/minio server /data'
+    container_name: minio_proj
