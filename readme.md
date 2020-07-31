@@ -21,16 +21,35 @@ It's possible to use the same machine as the server and the client
 
 ## Configuration Client and Server are the same machine
 
-1. Go to the directory, where your server will run.
+1. Go to the directory, where your server will run and clone project
 
 ```shell script
-cd your_mlflow_server_folder
+git clone https://github.com/leoromanovich/mlflow_tracking_server && cd mlflow_tracking_server
 ```
 
-2. Clone repository
+2. Go to mlflow_server directory
 
 ```shell script
-git clone https://github.com/leoromanovich/mlflow_tracking_server
+cd mlflow_server
+```
+
+3. Run server
+
+```shell script
+sudo docker-compose up --build
+```
+
+4. Server is ready, so [add few lines to client code](#Client-configuration)
+5. Enjoy!
+
+
+## Configuration Server is remote machine
+
+1. Connect to your remote machine
+2. Go to the directory, where your server will run and clone project
+
+```shell script
+git clone https://github.com/leoromanovich/mlflow_tracking_server && cd mlflow_tracking_server
 ```
 
 3. Go to mlflow_server directory
@@ -39,49 +58,17 @@ git clone https://github.com/leoromanovich/mlflow_tracking_server
 cd mlflow_server
 ```
 
-4. Run server
+4. Change in `docker-compose.yml` file **line 13 IP adress to your remote machine** 
+
+5. Run server
 
 ```shell script
 sudo docker-compose up --build
 ```
 
-5. Server is ready, so [add few lines to client code](#Client-configuration)
+6. Server is ready, so [add few lines to client code](#Client-configuration)
 
-6. Enjoy!
-
-
-## Configuration Server is remote machine
-
-1. Connect to your remote machine
-2. Go to the directory, where your server will run.
-
-```shell script
-cd your_mlflow_server_folder
-```
-
-3. Clone repository
-
-```shell script
-git clone https://github.com/leoromanovich/mlflow_tracking_server
-```
-
-4. Go to mlflow_server directory
-
-```shell script
-cd mlflow_server
-```
-
-5. Change in `docker-compose.yml` file **line 13 IP adress to your remote machine** 
-
-6. Run server
-
-```shell script
-sudo docker-compose up --build
-```
-
-7. Server is ready, so [add few lines to client code](#Client-configuration)
-
-8. Enjoy!
+7. Enjoy!
 
 ## Client configuration
 
