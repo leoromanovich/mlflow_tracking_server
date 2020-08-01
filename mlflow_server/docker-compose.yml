@@ -9,8 +9,7 @@ services:
     ports:
       - 5555:5000
     environment:
-      # minio server IP and port
-      - "MLFLOW_S3_ENDPOINT_URL=http://0.0.0.0:9001"
+      - "MLFLOW_S3_ENDPOINT_URL=http://172.20.128.3:9000"
       - "AWS_ACCESS_KEY_ID=minio"
       - "AWS_SECRET_ACCESS_KEY=minio123"
       - "ARTIFACT_ROOT=s3://mlflow-artifacts/"
@@ -18,6 +17,10 @@ services:
     depends_on:
       - minio_proj
     container_name: mlfs_proj
+    networks:
+      mlfs-network:
+        ipv4_address: 172.20.128.2
+
   minio_proj:
     image: minio/minio:latest
     volumes:
@@ -30,3 +33,12 @@ services:
     entrypoint: sh
     command: -c 'mkdir -p /data/mlflow-artifacts && /usr/bin/minio server /data'
     container_name: minio_proj
+    networks:
+      mlfs-network:
+        ipv4_address: 172.20.128.3
+
+networks:
+  mlfs-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
