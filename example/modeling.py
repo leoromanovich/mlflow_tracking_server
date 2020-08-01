@@ -5,12 +5,14 @@ import numpy as np
 import os
 
 # Use IP of your remote machine here
-server_ip = '0.0.0.0'
+server_ip = "0.0.0.0"
 
 os.environ['AWS_ACCESS_KEY_ID'] = 'minio'
 os.environ['AWS_SECRET_ACCESS_KEY'] = 'minio123'
-os.environ['MLFLOW_S3_ENDPOINT_URL'] = f'http://{server_ip}:9001'
+os.environ['MLFLOW_S3_ENDPOINT_URL'] = f"http://{server_ip}:9001"
 
+mlflow.set_tracking_uri(f"http://{server_ip}:5555")
+mlflow.set_experiment("awesome-experiment")
 
 #################################
 #### YOUR EXPERIMENT IS HERE ####
