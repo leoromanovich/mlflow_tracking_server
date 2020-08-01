@@ -59,18 +59,16 @@ git clone https://github.com/leoromanovich/mlflow_tracking_server && cd mlflow_t
 cd mlflow_server
 ```
 
-4. Change in `docker-compose.yml` file **line 13 IP adress to your remote machine** 
-
-5. Run server
+4. Run server
 
 ```shell script
 sudo docker-compose up --build
 ```
 
-6. Server is ready, so [add few lines to client code](#Client-configuration)
+5. Server is ready, so [add few lines to client code](#Client-configuration)
 
-7. Check `your_server_ip:5555` for MLflow server and `your_server_ip:9001` 
-8. Enjoy!
+6. Check `your_server_ip:5555` for MLflow server and `your_server_ip:9001` 
+7. Enjoy!
 
 ## Client configuration
 
