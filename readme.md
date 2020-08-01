@@ -40,7 +40,7 @@ sudo docker-compose up --build
 ```
 
 4. Server is ready, so [add few lines to client code](#Client-configuration)
-5. Check `localhost:5555` for MLflow- erver and `localhost:9001` for Minio 
+5. Check `localhost:5555` for MLflow server and `localhost:9001` for Minio 
 6. Enjoy!
 
 
@@ -69,7 +69,7 @@ sudo docker-compose up --build
 
 6. Server is ready, so [add few lines to client code](#Client-configuration)
 
-7. Check `your_server_ip:5555` for MLflow and `your_server_ip:9001` 
+7. Check `your_server_ip:5555` for MLflow server and `your_server_ip:9001` 
 8. Enjoy!
 
 ## Client configuration
