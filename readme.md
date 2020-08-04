@@ -101,5 +101,5 @@ Open [docker-compose.yml](/mlflow_server/docker-compose.yml) file and change all
 ## Acknowledgments
 
 [Mikhail Knyazev](https://github.com/9dogs)  
-[Dmitry Kozlov](https://github.com/dkozlov)
+[Dmitry Kozlov](https://github.com/dkozlov)  
 [OCRV](http://www.ocrv.ru/)
